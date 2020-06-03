@@ -63,4 +63,4 @@ async function getData() {
 	}
 }
 
-getData();
+await getData();
