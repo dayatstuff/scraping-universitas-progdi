@@ -43,7 +43,7 @@ async function getData() {
 		//     console.log(item.id)
 		// }))
 
-		for (let index = 0; index < parsed.length; index++) {
+		for (let index = 0; index < 2; index++) {
 			let univ = parsed[index];
 			console.log(univ.name);
 			let hasil = await axios.get(
@@ -63,4 +63,4 @@ async function getData() {
 	}
 }
 
-await getData();
+getData();
