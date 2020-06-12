@@ -1,20 +1,5 @@
 const puppeteer = require("puppeteer");
 
-// async function getData() {
-// 	try {
-// 		let data = {
-// 			url: `https://ijazah.kemdikbud.go.id`,
-// 			kode_pt: "Universitas Dian Nuswantoro - 061031",
-// 			kodept: "061031",
-// 			kode_prodi: "55201",
-// 			no_ijazah: "019041",
-// 			angka: total,
-// 		};
-// 	} catch (error) {
-// 		console.log(error);
-// 	}
-// }
-
 const getData = async () => {
 	const browser = await puppeteer.launch();
 	try {

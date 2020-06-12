@@ -2,33 +2,6 @@ const fs = require("fs");
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-// const pt = fs.readFileSync('pt.json');
-// console.log(JSON.parse(pt))
-
-// fs.readFile('data_pt.json', 'utf8', (err, content) => {
-//     if(err) {
-//         console.error(err)
-//     } else {
-//         console.log(typeof(JSON.parse(content)))
-//     }
-// })
-
-// const data = [
-//   {
-//     "id": "071013",
-//     "name": "Universitas Yos Sudarso - 071013"
-//   },
-//   {
-//     "id": "071069",
-//     "name": "Universitas Yudharta Pasuruan - 071069"
-//   }
-// ]
-
-// const parsed = JSON.parse(data)
-// console.log(typeof(parsed))
-// const stringParsed = JSON.stringify(data)
-// const parsed = JSON.parse(stringParsed)
-
 const getData = async () => {
 	try {
 		const data = fs.readFileSync("convertcsv.json", "utf8");
@@ -70,6 +43,6 @@ const getData = async () => {
 	} catch (error) {
 		console.log(error);
 	}
-}
+};
 
 getData();
