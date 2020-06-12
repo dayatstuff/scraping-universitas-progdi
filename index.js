@@ -29,7 +29,7 @@ const axios = require("axios");
 // const stringParsed = JSON.stringify(data)
 // const parsed = JSON.parse(stringParsed)
 
-async function getData() {
+const getData = async () => {
 	try {
 		const data = fs.readFileSync("convertcsv.json", "utf8");
 		const parsed = JSON.parse(data);
@@ -42,22 +42,31 @@ async function getData() {
 		//     })
 		//     console.log(item.id)
 		// }))
-
-		for (let index = 0; index < 2; index++) {
+		let add = ``;
+		let option = ``;
+		for (let index = 0; index < parsed.length; index++) {
 			let univ = parsed[index];
-			console.log(univ.name);
+			add = `('${univ.id}', '${univ.name}'), `;
+			fs.appendFileSync("hasilUniv.txt", add + "\n");
+			console.log({ univ });
 			let hasil = await axios.get(
 				`https://ijazah.kemdikbud.go.id/assets/js/prodi.php?kodept=${univ.id}`
 			);
-			console.log({ hasil });
-			// let $ = cheerio.load(response.data);
-			// $("select")
-			// 	.find("option")
-			// 	.each((i, e) => {
-			//         // fs.appendFileSync("hasil.txt", $(e).text() + "\n");
+			// console.log({ hasil });
+			let $ = cheerio.load(hasil.data);
 
-			// 	});
+			$("select")
+				.find("option")
+				.each((i, e) => {
+					const xkey = $(e).val();
+					const xval = $(e).text();
+					if (xkey !== "") option = `('${univ.id}', '${xkey}', '${xval}'),`;
+					fs.appendFileSync("hasil.txt", option + "\n");
+				});
 		}
+		// console.log({ add });
+		// console.log({ option });
+		console.log("--DONE--");
 	} catch (error) {
 		console.log(error);
 	}
