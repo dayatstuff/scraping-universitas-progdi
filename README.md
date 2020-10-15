@@ -27,3 +27,4 @@ npm run start-ijazah-gagal
 - Ahmad Taufiq [peweer](https://github.com/peweer)
 - Ahmad Haqqer [haqqer](https://github.com/haqqer)
 - Bayu Permana Putra [babaiyu](https://github.com/babaiyu)
+- Dhevantareza [dhevantareza](https://github.com/dhevanthareza)
