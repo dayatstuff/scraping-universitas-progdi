@@ -10,9 +10,10 @@ const getData = async () => {
 			el.getAttribute("placeholder")
 		);
 		angka = angka.replace("Angka Pengaman :", "");
-		angka = angka.replace("=", "");
-		let arr = angka.split("+");
-		let total = arr.reduce((total, num) => total + +num);
+		angka = angka.replace(" ", "");
+		angka = angka.replace(" =", "");
+		let arr = angka.split(" + ");
+		let total = arr.reduce((total, num) => parseInt(total) + parseInt(num));
 		console.log({ angka, total });
 
 		await page.type(
